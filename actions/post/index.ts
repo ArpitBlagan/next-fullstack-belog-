@@ -62,3 +62,14 @@ export const addComment = async (data: any) => {
   }
   return { status: 500, message: "internal server error" };
 };
+
+export const userPost = async (id: any) => {
+  try {
+    const res = await prisma.post.findMany({ where: { user_id: id } });
+    console.log(res);
+    return { data: res, message: "success" };
+  } catch (err) {
+    console.log(err);
+  }
+  return { status: "error", message: "internal server error" };
+};

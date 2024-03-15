@@ -1,26 +1,30 @@
-"use client";
-import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/react";
-import axios from "axios";
 import BlogCard from "@/components/BlogCard";
-import { useSession } from "next-auth/react";
-export default  function () {
-  const { data: session } = useSession();
-  const [data, setD] = useState([]);
-  const getData = async () => {
-    const res = await axios.get(`api/mypost?user_id=${session?.user.id}`);
-    console.log("data", res.data);
-    setD(res.data.res);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-  console.log(data);
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { userPost } from "@/actions/post";
+export default async function () {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return (
+      <div className="min-h-screen max-container mt-5 flex justify-center items-center">
+        <h1 className="text-center">404 Not Found</h1>
+      </div>
+    );
+  }
+  const res = await userPost(session.user.id);
+  if (res.message == "error") {
+    return (
+      <div className="min-h-screen max-container mt-5 flex justify-center items-center">
+        <h1 className="text-center">500 Internal server error</h1>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen max-container mt-5">
-      {data && data.length ? (
+      {res.data && res.data.length ? (
         <div className="grid md:grid-cols-3 gap-4">
-          {data.map(
+          {res.data.map(
             (
               ele: {
                 id: string;
