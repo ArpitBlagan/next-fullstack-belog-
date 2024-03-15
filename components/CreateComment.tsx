@@ -50,7 +50,7 @@ export default async function CreateComment({
     setP(false);
   };
   return (
-    <div className="flex gap-4">
+    <div className="flex items-center gap-4">
       <Input
         id="cooll"
         ref={textRef}
@@ -60,7 +60,12 @@ export default async function CreateComment({
         className="flex-1"
         placeholder="nice work keep it up..."
       />
-      <Button onClick={handleClick} color="primary" disabled={pending}>
+      <Button
+        onClick={handleClick}
+        className="rounded-e-3xl py-1 px-3"
+        color="primary"
+        disabled={pending}
+      >
         {pending ? "Posting..." : "Comment"}
       </Button>
     </div>

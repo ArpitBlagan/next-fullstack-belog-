@@ -33,7 +33,7 @@ export default function Cardd() {
         <Link
           isExternal
           showAnchorIcon
-          href="https://github.com/nextui-org/nextui"
+          href="https://github.com/ArpitBlagan/next-fullstack-belog-"
         >
           Visit source code on GitHub.
         </Link>

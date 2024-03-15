@@ -21,11 +21,16 @@ const PostDetail = async ({ id }: { id: string }) => {
           />
         </CardHeader>
         <CardBody className="py-2 w-8/12">
-          <h3 className=" font-semibold max-md:text-lg text-[60px] text-center">
+          <h3 className=" font-semibold max-md:text-lg text-[50px] text-center">
             {get.res?.title}
           </h3>
-          <p className="text-start">{get.res?.description}</p>
+          <p className="text-start text-gray-500 text-[30px]">
+            {get.res?.description}
+          </p>
         </CardBody>
+        <div className="flex ">
+          <p className="text-bold font-thin">By: {get.res?.user.name}</p>
+        </div>
       </Card>
       <div className="">
         <Suspense fallback="">

@@ -29,7 +29,7 @@ export default function Upload() {
           const val = await uploadFile(data);
           console.log(val);
           if (val.status == "success") {
-            router.push("/");
+            router.push("/mypost");
           }
           setS(val);
         }}
@@ -58,7 +58,7 @@ export default function Upload() {
             </p>
           )}
         </div>
-        <Buttonn normal="post" normalS="posting..." />
+        <Buttonn normal="Post" normalS="Posting..." />
       </form>
     </div>
   );

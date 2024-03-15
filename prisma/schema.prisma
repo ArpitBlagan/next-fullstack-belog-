@@ -30,7 +30,7 @@ model Post{
   upvote Int
   downvote Int
   image String
-  user User @relation(fields: [user_id],references: [id])
+  user User @relation(fields: [user_id],references: [id],onDelete: Cascade)
   user_id String
   comment Comment[]
 }
@@ -40,8 +40,8 @@ model Comment{
   text String
   upvote Int
   downvote Int
-  post Post @relation(fields: [post_id],references: [id])
-  user User @relation(fields: [user_id],references: [id])
+  post Post @relation(fields: [post_id],references: [id],onDelete: Cascade)
+  user User @relation(fields: [user_id],references: [id], onDelete: Cascade)
   user_id String
   post_id String
 }

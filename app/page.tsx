@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className="text-4xl max-md:text-2xl text-center my-2">Blogs</h1>
         <Blog />
         <div className="flex justify-center my-2">
-          <Link href="/" className="text-xl ">
+          <Link href="/post" className="text-xl ">
             See More
           </Link>
         </div>

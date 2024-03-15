@@ -13,8 +13,12 @@ export default function BlogCard({
   img: string;
 }) {
   return (
-    <Card isFooterBlurred radius="lg" className="border-none ">
-      <div className="flex justify-center">
+    <Card
+      isFooterBlurred
+      radius="lg"
+      className="border-none flex flex-col gap-4"
+    >
+      <div className="flex justify-center p-3">
         <Image
           alt="Woman listing to music"
           className="object-cover rounded-xl"
@@ -24,13 +28,13 @@ export default function BlogCard({
         />
       </div>
       <CardFooter
-        className="justify-center flex-col before:bg-white/10 
+        className="justify-center flex-col items-center before:bg-white/10 gap-2
       border-white/20 border-1 overflow-hidden py-1 before:rounded-xl 
       rounded-large bottom-1 shadow-small "
       >
-        <p className="text-xl text-blue-400">{title}</p>
+        <p className="text">{title}</p>
         <Link
-          className="text-md text-red-400 bg-black/20 p-3 rouned-xl"
+          className=" bg-black hover:bg-black/20 py-1 px-3 rounded-3xl"
           href={`/post/${id}`}
         >
           Detail...

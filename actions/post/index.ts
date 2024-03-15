@@ -21,6 +21,7 @@ export const getPostId = async (id: string) => {
     const res = await prisma.post.findFirst({
       where: { id: id },
       include: {
+        user: true,
         comment: {
           select: {
             text: true,

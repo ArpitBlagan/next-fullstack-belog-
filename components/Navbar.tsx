@@ -37,18 +37,28 @@ const Navbar = () => {
           <Link href="/">Piro</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/upload">Add Post/Query</Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent className="">
-        <NavbarItem>
           <Link href="/post">Posts</Link>
         </NavbarItem>
       </NavbarContent>
+      {session && session.user && (
+        <NavbarContent className="">
+          <NavbarItem>
+            <Link href="/upload">Add Post/Query</Link>
+          </NavbarItem>
+        </NavbarContent>
+      )}
       {session && session.user ? (
         <NavbarContent className="max-md:hidden">
           <NavbarItem>
-            <button onClick={handleClick}>LogOut</button>
+            <Link href="/mypost">My Post</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <button
+              onClick={handleClick}
+              className="bg-white text-black py-2 px-3 rounded-e-3xl"
+            >
+              LogOut
+            </button>
           </NavbarItem>
         </NavbarContent>
       ) : (
@@ -65,14 +75,30 @@ const Navbar = () => {
         aria-label={isOpen ? "Close menu" : "Open menu"}
         className="md:hidden"
       />
-      <NavbarMenu>
-        <NavbarMenuItem>
-          <Link href="/login">SigIn</Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="/register">SigUp</Link>
-        </NavbarMenuItem>
-      </NavbarMenu>
+      {session && session.user ? (
+        <NavbarMenu>
+          <NavbarMenuItem>
+            <Link href="/mypost">My Post</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <button
+              onClick={handleClick}
+              className="bg-white text-black py-2 px-3 rounded-e-3xl"
+            >
+              LogOut
+            </button>
+          </NavbarMenuItem>
+        </NavbarMenu>
+      ) : (
+        <NavbarMenu>
+          <NavbarMenuItem>
+            <Link href="/login">SigIn</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/register">SigUp</Link>
+          </NavbarMenuItem>
+        </NavbarMenu>
+      )}
     </Nav>
   );
 };
