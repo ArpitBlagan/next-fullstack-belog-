@@ -25,7 +25,7 @@ async function uploadFileToS3(file: any, fileName: any) {
     ContentType: ["image/jpg", "image/png", "image/svg"],
   };
 
-  const command = new PutObjectCommand(params);
+  const command = new PutObjectCommand(params as any);
   try {
     const response = await s3Client.send(command);
     console.log("File uploaded successfully:", response);
