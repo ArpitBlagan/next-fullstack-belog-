@@ -9,10 +9,10 @@ export const getTopPost = async (take: number) => {
         upvote: "desc",
       },
     });
-    return res;
+    return { message: "success", data: res };
   } catch (err) {
     console.log(err);
-    return [];
+    return { message: "error", data: [] };
   }
 };
 
