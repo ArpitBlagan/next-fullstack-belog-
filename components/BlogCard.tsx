@@ -17,6 +17,7 @@ export default function BlogCard({
       isFooterBlurred
       radius="lg"
       className="border-none flex flex-col gap-4"
+      key={title as string}
     >
       <div className="flex justify-center p-3">
         <Image
