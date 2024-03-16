@@ -3,7 +3,7 @@ import BlogCard from "@/components/BlogCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { userPost } from "@/actions/post";
-export default async function () {
+export default async function page() {
   const session = await getServerSession(authOptions);
   if (!session) {
     return (
