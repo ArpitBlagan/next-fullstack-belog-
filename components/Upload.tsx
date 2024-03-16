@@ -5,11 +5,16 @@ import Buttonn from "./Buttonn";
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 export default function Upload() {
+  const router = useRouter();
+  const { data: session } = useSession();
+  if (!session || !session.user) {
+    router.push("/login");
+  }
   const [state, setS] = useState<{ message: string; status: string } | null>(
     null
   );
-  const router = useRouter();
   const [imageUrl, setImageUrl] = useState("");
   const handleChange = async (e: any) => {
     const file = e.target.files[0];
@@ -26,7 +31,7 @@ export default function Upload() {
     <div className="flex flex-col max-md:gap-5 w-full gap-10  justify-center items-center my-3 max-md:px-5 px-12 min-h-screen">
       <form
         action={async (data) => {
-          const val = await uploadFile(data);
+          const val = await uploadFile(data, session?.user.id);
           console.log(val);
           if (val.status == "success") {
             router.push("/mypost");

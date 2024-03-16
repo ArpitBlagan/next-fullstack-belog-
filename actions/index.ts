@@ -35,7 +35,7 @@ async function uploadFileToS3(file: any, fileName: any) {
   }
 }
 
-export async function uploadFile(formData: any) {
+export async function uploadFile(formData: any, id: any) {
   try {
     console.log("Cool", formData);
     const file = formData.get("file");
@@ -57,7 +57,7 @@ export async function uploadFile(formData: any) {
         image: imageUrl,
         upvote: 0,
         downvote: 0,
-        user_id: "aa817ea9-f69a-4a04-a038-ef88e9a2e3e7",
+        user_id: id,
       },
     });
     console.log(res);
