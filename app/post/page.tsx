@@ -25,12 +25,9 @@ export default async function () {
               index: number
             ) => {
               return (
-                <BlogCard
-                  title={ele.title}
-                  img={ele.image}
-                  id={ele.id}
-                  key={index}
-                />
+                <div key={ele.title}>
+                  <BlogCard title={ele.title} img={ele.image} id={ele.id} />
+                </div>
               );
             }
           )}
