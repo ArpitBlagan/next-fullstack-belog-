@@ -13,6 +13,7 @@ export default async function page() {
     );
   }
   const res = await userPost(session.user.id);
+  console.log(res);
   if (res.message == "error") {
     return (
       <div className="min-h-screen max-container mt-5 flex justify-center items-center">
@@ -22,7 +23,7 @@ export default async function page() {
   }
   return (
     <div className="min-h-screen max-container mt-5">
-      {res.data && res.data.length ? (
+      {res.data ? (
         <div className="grid md:grid-cols-3 gap-4">
           {res.data.map(
             (
@@ -41,6 +42,7 @@ export default async function page() {
               );
             }
           )}
+          <h1 className="text-center">That's It</h1>
         </div>
       ) : (
         <div className="flex h-screen justify-center items-center">
