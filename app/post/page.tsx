@@ -1,7 +1,7 @@
 import { getTopPost } from "@/actions/post";
 import { Spinner } from "@nextui-org/react";
 import BlogCard from "@/components/BlogCard";
-export default async function () {
+export default async function page() {
   const res = await getTopPost(20);
   if (res.message == "error") {
     return (
