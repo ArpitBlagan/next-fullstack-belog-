@@ -34,7 +34,14 @@ export default async function () {
               },
               index: number
             ) => {
-              return <BlogCard title={ele.title} img={ele.image} id={ele.id} />;
+              return (
+                <BlogCard
+                  title={ele.title}
+                  img={ele.image}
+                  id={ele.id}
+                  key={index}
+                />
+              );
             }
           )}
         </div>
