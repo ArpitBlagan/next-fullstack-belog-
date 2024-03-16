@@ -14,7 +14,6 @@ import {
   KeyIcon,
   EnvelopeIcon,
 } from "@heroicons/react/20/solid";
-import { Router } from "express";
 const Register = () => {
   const router = useRouter();
   const {
