@@ -20,10 +20,10 @@ export default function SignIn() {
     resolver: zodResolver(loginSchema),
   });
   const submit: SubmitHandler<logindata> = async (data) => {
-    console.log(data);
+    console.log("login", data);
     setP(true);
     const res = await signIn("credentials", {
-      username: data.email,
+      email: data.email,
       password: data.password,
       redirect: false,
     });
@@ -40,7 +40,7 @@ export default function SignIn() {
   return (
     <div className="flex flex-col max-md:gap-5 gap-10  justify-center items-center my-3 max-md:px-5 px-12 min-h-screen">
       <h1>
-        Don't have an account <Link href="/signin">SignUp</Link>
+        Don't have an account <Link href="/register">SignUp</Link>
       </h1>
       <form
         onSubmit={handleSubmit(submit)}
@@ -50,6 +50,7 @@ export default function SignIn() {
           label="Email"
           errorMessage={errors.email?.message}
           title="email"
+          type="email"
           placeholder="arpit@gmail.com"
           {...register("email")}
           startContent={<EnvelopeIcon className="w-4" />}

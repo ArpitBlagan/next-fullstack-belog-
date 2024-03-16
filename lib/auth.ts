@@ -8,17 +8,18 @@ export const authOptions = {
       name: "Credentials",
       credentials: {
         email: {
-          label: "email",
+          label: "Email",
           type: "email",
           placeholder: "arpit@gmail.com",
         },
         password: {
-          label: "password",
+          label: "Password",
           type: "password",
           placeholder: "Ad@123%sa",
         },
       },
       async authorize(credentials): Promise<any> {
+        console.log(credentials);
         const email = credentials?.email as string;
         const password = credentials?.password as string;
         console.log("authorize", email, password);
@@ -28,6 +29,7 @@ export const authOptions = {
               email: email,
             },
           });
+          console.log("user found or not", res);
           if (await bcrypt.compare(password, res?.password as string)) {
             try {
               const token = jwt.sign(

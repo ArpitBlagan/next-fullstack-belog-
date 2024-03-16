@@ -20,11 +20,11 @@ const PostDetail = async ({ id }: { id: string }) => {
             height={400}
           />
         </CardHeader>
-        <CardBody className="py-2 w-8/12">
+        <CardBody className="py-2 w-full md:w-8/12">
           <h3 className=" font-semibold max-md:text-lg text-[50px] text-center">
             {get.res?.title}
           </h3>
-          <p className="text-start text-gray-500 text-[30px]">
+          <p className="lg:text-[20px] text-center text-gray-500 ">
             {get.res?.description}
           </p>
         </CardBody>

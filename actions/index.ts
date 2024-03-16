@@ -84,7 +84,7 @@ export async function createUser(formData: any) {
         ...data,
       },
     });
-    console.log(res);
+    console.log("user created successfully", res);
     return { status: "success", message: "user created successfully" };
   } catch (err) {
     console.log(err);
