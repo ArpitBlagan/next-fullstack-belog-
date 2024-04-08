@@ -27,4 +27,4 @@ jobs:
           tags: arpitblagan/piroo:latest
 
       - name: Verify Pushed Image
-        run: docker pull 100xdevs/piroo:latest
+        run: docker pull arpitblagan/piroo:latest
