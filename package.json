@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,json}\"",
     "docker:dev": "npx prisma migrate dev && npm run dev"
   },
   "dependencies": {

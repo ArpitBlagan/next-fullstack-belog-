@@ -1,8 +1,0 @@
-version: "3.5"
-services:
-  app:
-    build: .
-    ports: -3000:3000
-    container_name: proo
-    environment:
-      - DATABASE_URL:
