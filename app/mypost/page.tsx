@@ -5,7 +5,7 @@ import { authOptions } from "@/lib/auth";
 import { userPost } from "@/actions/post";
 export default async function page() {
   const session = await getServerSession(authOptions);
-  console.log("coollllll");
+  console.log("coolllllllllll");
   if (!session) {
     return (
       <div className="min-h-screen max-container mt-5 flex justify-center items-center">
